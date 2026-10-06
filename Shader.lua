@@ -17,7 +17,7 @@ for _, child in ipairs(lighting:GetChildren()) do
 end
 
 local bloom = Instance.new("BloomEffect")
-bloom.Intensity = 0.1
+bloom.Intensity = 0.14
 bloom.Threshold = 0.9
 bloom.Parent = lighting
 
