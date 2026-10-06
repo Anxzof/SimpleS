@@ -33,6 +33,17 @@ for _, part in ipairs(ws:GetDescendants()) do
     end
 end
 
+if _G.MaterialConn then
+    _G.MaterialConn:Disconnect()
+    _G.MaterialConn = nil
+end
+
+_G.MaterialConn = ws.DescendantAdded:Connect(function(descendant)
+    if descendant:IsA("BasePart") then
+        descendant.Material = Enum.Material.Slate
+    end
+end)
+
 local existingGui = pg:FindFirstChild("FpsCounterGui")
 if existingGui then
     existingGui:Destroy()
