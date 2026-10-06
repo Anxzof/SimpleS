@@ -27,9 +27,15 @@ cc.Contrast = 0.3
 cc.Saturation = 0.7
 cc.Parent = lighting
 
+local function applySlate(part)
+    if part.Material ~= Enum.Material.Slate then
+        part.Material = Enum.Material.Slate
+    end
+end
+
 for _, part in ipairs(ws:GetDescendants()) do
     if part:IsA("BasePart") then
-        part.Material = Enum.Material.Slate
+        applySlate(part)
     end
 end
 
@@ -40,7 +46,7 @@ end
 
 _G.MaterialConn = ws.DescendantAdded:Connect(function(descendant)
     if descendant:IsA("BasePart") then
-        descendant.Material = Enum.Material.Slate
+        applySlate(descendant)
     end
 end)
 
